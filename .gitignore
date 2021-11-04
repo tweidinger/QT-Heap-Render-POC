@@ -1,0 +1,7 @@
+.vscode/*
+CMakeFiles/*
+poc_autogen/*
+.qmake.stash
+cmake_install.cmake
+CMakeCache.txt
+*.o
