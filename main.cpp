@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     QLabel *label = new QLabel("yeeee");
-    QPixmap *pixmap = new QPixmap("/home/user/pbm.pbm");
+    QPixmap *pixmap = new QPixmap("pbm.pbm");
     
     label->setPixmap(*pixmap);
     label->show();
