@@ -29,3 +29,11 @@ The information rendered in the image are the raw heap bits shown as a monochrom
 image.
 
 ![heap_sample_image.jpg](heap_sample_image.jpg)
+
+### Issue 1, read of uninitialized memory
+Specially crafted pbm/pgm/ppm (raw/ascii) images, that contain less pixel data than indicated by the pixel dimensions in the file header, lead to a valid QImage object containing uninitialized heap data. We suspect the bug to be in the following code location and should be easily fixable by a) initializing allocated data with zeros and/or b) rejecting pbm/pgm/ppm images with less pixel data than expected.
+[https://github.com/qt/qtbase/blob/c0a8cfe1677f55daec4bc8626aced41c7ebeb1c4/src/gui/image/qppmhandler.cpp#L168]
+
+### Issue 2, incorrect pbm file parsing
+Even correct pbm (ascii) images are parsed and rendered incorrectly. We suspect the bug to be at the following code location.
+[https://github.com/qt/qtbase/blob/c0a8cfe1677f55daec4bc8626aced41c7ebeb1c4/src/gui/image/qppmhandler.cpp#L239]
