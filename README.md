@@ -70,7 +70,7 @@ it can be classified as an *Information Leak*.
 
 > Real world example 1: Create ephemeral `Teamspeak` channels on a server as a guest with this image set in the description. Each channel will cause around 4GB memory allocation at every user on the server.
 
-> Real world example 2: Visiting a malicous website with an older version of `qutebrowser` which uses non-default flags to enable parsing these quite old image formats.
+> Real world example 2: Visit a malicous website with an older version of `qutebrowser` which uses non-default flags to enable parsing these quite old image formats. The site then proceeds to extract your heap via javascript.
 
 The information rendered in the image are the raw heap bits shown as a monochrome
 image. These can be reversed by converting the pixel data into binary format. Afterwards secrets or other information leaks can be searched.
