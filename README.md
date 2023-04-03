@@ -30,7 +30,7 @@ P1
 In certain applications this image file is rendered
 and possibly exposed to third parties.
 The information rendered in the image are the raw heap bits shown as a monochrome
-image. These can be reversed into the binary data by using OCR and then secrets or other information leaks can be searched.
+image. These can be reversed by converting the pixel data into binary format. Afterwards secrets or other information leaks can be searched.
 
 ![heap_sample_image.jpg](heap_sample_image.jpg)
 
