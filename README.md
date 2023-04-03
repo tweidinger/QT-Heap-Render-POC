@@ -27,8 +27,7 @@ and continues to read from the uninitialized heap.
 The function [`read_pbm_body`](https://github.com/qt/qtbase/blob/1a63409579ff0e9ce524c09701c1ef8bd2d99f25/src/gui/image/qppmhandler.cpp#L135)
 passes the width `w` and height `h` parameter directly from the file header without validation of actual size.
 
-The `h` parameter is then used to incorrectly limit `y < h` the [allocation loop]
-(https://github.com/qt/qtbase/blob/c0a8cfe1677f55daec4bc8626aced41c7ebeb1c4/src/gui/image/qppmhandler.cpp#L239)
+The `h` parameter is then used to incorrectly limit `y < h` the [allocation loop](https://github.com/qt/qtbase/blob/c0a8cfe1677f55daec4bc8626aced41c7ebeb1c4/src/gui/image/qppmhandler.cpp#L239)
 where the heap data is passed into the image.
 
 A very simple application to reproduce and to showcase the required primitives was created. 
