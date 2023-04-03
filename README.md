@@ -31,13 +31,16 @@ P1
 ```
 
 In certain applications this image file is rendered
-and possibly exposed to third parties.
+and possibly exposed to third parties. An example would be a older
+version of `qutebrowser` with non-default flags to enable
+parsing these quite old image formats.
+
 The information rendered in the image are the raw heap bits shown as a monochrome
 image. These can be reversed by converting the pixel data into binary format. Afterwards secrets or other information leaks can be searched.
 
 ![heap_sample_image.jpg](heap_sample_image.jpg)
 
-The issue seemed to be introduced in this [commit](https://github.com/qt/qtbase/commit/1a63409579ff0e9ce524c09701c1ef8bd2d99f25/src/gui/image/qppmhandler.cpp).
+The issues seemed to be introduced in this [commit](https://github.com/qt/qtbase/commit/1a63409579ff0e9ce524c09701c1ef8bd2d99f25/src/gui/image/qppmhandler.cpp).
 
 Another related vulnerability, which was present at the time of investigation
 was that even correct `pbm` (ascii mode) images were parsed and rendered incorrectly, also leaking heap data.
@@ -45,8 +48,9 @@ was that even correct `pbm` (ascii mode) images were parsed and rendered incorre
 The issues were fixed in this [commit](https://github.com/qt/qtbase/commit/997c052db9e2bef47cf8217c1537a99c2f086858) and this [commit](https://github.com/qt/qtbase/commit/8ce36938569841020daf9dc23e41438b06e0ee53) and no CVE or security release was assigned by the QT project, which is the reason we waited a long time for public disclosure.
 
 The responsible QT maintainer took swift action to fix the underlying issue but it
-seems like the coordination and process resulted in dropping the public
+seems like the coordination and process dropped the public
 disclosure from the QT side.
+
 Multiple other CVEs and security issues were publicly disclosed in QT-5/6 in the meantime. We carried on with our lives and multiple
 patched releases happened, so we feel it is fine to publish this issue now.
 
