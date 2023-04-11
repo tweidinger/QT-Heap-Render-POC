@@ -14,7 +14,7 @@ So please check your application and confirm
 you are using the latest patched versions of *QT*.
 
 We found these issues to be present in Qt `5.15.2`
-and the latest *QT*6 available at the time of discovery (`6.2.1-2`).
+and the latest *QT*6 available `6.2.1-2` at the time of discovery (2021).
 Most likely older versions are affected as well but we did not confirm this.
 
 ## Read of Uninitialized Memory
